@@ -1,35 +1,22 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and [`shadcn-ui`](https://ui.shadcn.com/)
 
-## Getting Started
+- [x] shadcn-ui
+- [x] @tailwindcss/typography
+-
 
-First, run the development server:
+## Shadcn components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Add Shadcn components
+Use a shortcut to add components
 
 ```bash
 npm run a button
 # or
-yarn a button
-# or
-pnpm a button
-# or
-bun a button
+```
+
+Change your settings in `./components.json` or run `npx shadcn-ui@latest init` to re-initialize shadcn.
+
+```bash
+npx shadcn-ui@latest init
 ```
 
 ## Learn More
