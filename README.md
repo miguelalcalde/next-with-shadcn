@@ -1,12 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and [`shadcn-ui`](https://ui.shadcn.com/)
 
-<div style="display:flex;flex-direction:column;align-items:center;width:100%;gap:10px">
-
-![next](public/next.svg)
-![next](public/shadcn.png)
-
-</div>
-
 ## Getting Started
 
 First, run the development server:
