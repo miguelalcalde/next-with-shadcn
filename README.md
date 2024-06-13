@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and [`shadcn-ui`](https://ui.shadcn.com/)
+
+<div style="display:flex;flex-direction:column;align-items:center;width:100%;gap:10px">
+
+![next](public/next.svg)
+![next](public/shadcn.png)
+
+</div>
 
 ## Getting Started
 
@@ -19,6 +26,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Add Shadcn components
+
+```bash
+npm run a button
+# or
+yarn a button
+# or
+pnpm a button
+# or
+bun a button
+```
 
 ## Learn More
 
