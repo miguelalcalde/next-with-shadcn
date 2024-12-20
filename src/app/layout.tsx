@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import {
+  Sidebar,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -26,7 +33,15 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <NuqsAdapter>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full h-min-screen">
+              <SidebarTrigger />
+              {children}
+            </main>
+          </SidebarProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );

@@ -1,188 +1,145 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
-import { ArrowRight, ExternalLink } from "lucide-react";
-import Image from "next/image";
-import { fileURLToPath } from "url";
-
-// Get the current file URL and convert it to a file path
-const __filename = fileURLToPath(import.meta.url);
+  Store,
+  LayoutDashboard,
+  BookOpen,
+  Github,
+  ArrowRight,
+  Code2,
+  Layers,
+  Atom,
+  Paintbrush,
+  Component,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center  lg:static lg:size-auto">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex min-h-screen flex-col items-center justify-between w-full p-10 lg:px-20">
+      {/* Hero Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center space-y-4 text-center">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+              Next.js Template Collection
+              <span className="text-primary"> for Modern Web Apps</span>
+            </h1>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+              Jump-start your project with three production-ready templates
+              powered by Next.js 15 and Tailwind CSS.
+            </p>
+            <div className="space-x-4">
+              <Button size="lg">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button variant="outline" size="lg">
+                <Github className="mr-2 h-4 w-4" />
+                View on GitHub
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Template Cards */}
+      <div className="container px-4 py-12">
+        <h2 className="text-2xl font-bold text-center mb-8">
+          Choose Your Template
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="transition-transform duration-300 hover:-translate-y-1 cursor-pointer group">
+            <a href="/dashboard">
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-lg font-medium">Dashboard</CardTitle>
+                <LayoutDashboard className="h-5 w-5 text-neutral-500 group-hover:text-primary transition-colors" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-neutral-500">Visualize your data</p>
+              </CardContent>
+            </a>
+          </Card>
+
+          <Card className="hover:bg-neutral-100 transition-colors cursor-pointer">
+            <a href="/store">
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-lg font-medium">Store</CardTitle>
+                <Store className="h-5 w-5 text-neutral-500" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-neutral-500">Build your shop</p>
+              </CardContent>
+            </a>
+          </Card>
+
+          <Card className="hover:bg-neutral-100 transition-colors cursor-pointer">
+            <a href="/blog">
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-lg font-medium">Blog</CardTitle>
+                <BookOpen className="h-5 w-5 text-neutral-500" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-neutral-500">Blog your stuff </p>
+              </CardContent>
+            </a>
+          </Card>
         </div>
       </div>
 
-      <div className="gap-10 relative flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
+      {/* Tech Stack Section */}
+      <section className="w-full py-12">
+        <div className="container px-4">
+          <h2 className="text-2xl font-bold text-center mb-8">
+            Built With Modern Tech Stack
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              {
+                name: "Next.js 15",
+                url: "https://nextjs.org/docs",
+                icon: <Layers className="h-4 w-4 mr-1" />,
+              },
+              {
+                name: "React 18",
+                url: "https://react.dev",
+                icon: <Atom className="h-4 w-4 mr-1" />,
+              },
+              {
+                name: "Tailwind CSS",
+                url: "https://tailwindcss.com/docs",
+                icon: <Paintbrush className="h-4 w-4 mr-1" />,
+              },
+              {
+                name: "TypeScript",
+                url: "https://www.typescriptlang.org/docs",
+                icon: <Code2 className="h-4 w-4 mr-1" />,
+              },
+              {
+                name: "shadcn/ui",
+                url: "https://ui.shadcn.com",
+                icon: <Component className="h-4 w-4 mr-1" />,
+              },
+            ].map((tech) => (
               <a
-                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                key={tech.name}
+                href={tech.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
+                className="no-underline"
               >
-                <Image
-                  className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                  src="/next.svg"
-                  alt="Next.js Logo"
-                  width={180}
-                  height={37}
-                  priority
-                />
+                <Badge
+                  variant="outline"
+                  className="text-sm hover:-translate-y-1 transition-transform duration-300 flex items-center"
+                >
+                  {tech.icon}
+                  {tech.name}
+                </Badge>
               </a>
-            </TooltipTrigger>
-            <TooltipContent className="mb-2">
-              <a
-                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                Next.js docs
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <span className="text-4xl">+</span>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <a
-                href="https://ui.shadcn.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                <Image
-                  className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert h-20 w-20 rounded-md"
-                  src="/shadcn.png"
-                  alt="Shadcn Logo"
-                  width={180}
-                  height={180}
-                  priority
-                />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent className="mb-2">
-              <a
-                href="https://ui.shadcn.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                Shadcn-ui docs
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-
-      <div className="flex mb-32 gap-5 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Card className="h-full hover:-translate-y-1 transition hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="mb-3 text-2xl font-semibold">
-                Docs <ArrowRight className="w-6 h-6 inline-flex mb-1" />
-              </CardTitle>
-              <CardDescription className="m-0 max-w-[30ch] text-sm opacity-50">
-                Find in-depth information about Next.js features and API.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Card className="h-full hover:-translate-y-1 transition hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="mb-3 text-2xl font-semibold">
-                Learn <ArrowRight className="w-6 h-6 inline-flex mb-1" />
-              </CardTitle>
-              <CardDescription className="m-0 max-w-[30ch] text-sm opacity-50">
-                Learn about Next.js in an interactive course with&nbsp;quizzes!
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Card className="h-full hover:-translate-y-1 transition hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="mb-3 text-2xl font-semibold">
-                Templates <ArrowRight className="w-6 h-6 inline-flex mb-1" />
-              </CardTitle>
-              <CardDescription className="m-0 max-w-[30ch] text-sm opacity-50">
-                Explore starter templates for Next.js.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Card className="h-full hover:-translate-y-1 transition hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="mb-3 text-2xl font-semibold">
-                Deploy <ArrowRight className="w-6 h-6 inline-flex mb-1" />
-              </CardTitle>
-              <CardDescription className="m-0 max-w-[30ch] text-sm opacity-50">
-                Instantly deploy your Next.js site to a shareable URL with
-                Vercel.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-      </div>
-    </main>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
