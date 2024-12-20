@@ -61,7 +61,7 @@ export default function Home() {
             </a>
           </Card>
 
-          <Card className="hover:bg-neutral-100 transition-colors cursor-pointer">
+          <Card className="transition-transform duration-300 hover:-translate-y-1 cursor-pointer group">
             <a href="/store">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg font-medium">Store</CardTitle>
@@ -73,7 +73,7 @@ export default function Home() {
             </a>
           </Card>
 
-          <Card className="hover:bg-neutral-100 transition-colors cursor-pointer">
+          <Card className="transition-transform duration-300 hover:-translate-y-1 cursor-pointer group">
             <a href="/blog">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg font-medium">Blog</CardTitle>
