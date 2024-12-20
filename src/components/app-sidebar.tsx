@@ -5,6 +5,7 @@ import {
   Home,
   LayoutDashboard,
   Settings,
+  Link,
 } from "lucide-react";
 
 import {
@@ -39,6 +40,11 @@ const items = [
     title: "Blog",
     url: "/blog",
     icon: BookOpen,
+  },
+  {
+    title: "Query url",
+    url: "/query-url",
+    icon: Link,
   },
   {
     title: "Settings",
