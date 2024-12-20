@@ -11,8 +11,9 @@ import {
 } from "nuqs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
 
-export default function QueryTestPage() {
+function QueryTestContent() {
   // Basic string query
   const [name, setName] = useQueryState("name", { defaultValue: "" });
 
@@ -178,5 +179,13 @@ export default function QueryTestPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+export default function QueryTestPage() {
+  return (
+    <Suspense>
+      <QueryTestContent />
+    </Suspense>
   );
 }
