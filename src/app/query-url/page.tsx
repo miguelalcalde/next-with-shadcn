@@ -48,7 +48,10 @@ export default function QueryTestPage() {
   // Complex object using JSON
   const [filters, setFilters] = useQueryState(
     "filters",
-    parseAsJson<{ category?: string; minPrice?: number }>()
+    parseAsJson(
+      (value: unknown) =>
+        value as { category?: string; minPrice?: number } | null
+    )
   );
 
   return (
