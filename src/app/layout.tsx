@@ -8,6 +8,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,13 +33,15 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <SidebarProvider>
-          <AppSidebar />
-          <main>
-            <SidebarTrigger />
-            {children}
-          </main>
-        </SidebarProvider>
+        <NuqsAdapter>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full h-min-screen">
+              <SidebarTrigger />
+              {children}
+            </main>
+          </SidebarProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
