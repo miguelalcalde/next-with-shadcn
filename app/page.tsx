@@ -65,7 +65,7 @@ export default function Home() {
             <a href="/store">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg font-medium">Store</CardTitle>
-                <Store className="h-5 w-5 text-neutral-500" />
+                <Store className="h-5 w-5 text-neutral-500 group-hover:text-primary transition-colors" />
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-neutral-500">Build your shop</p>
@@ -77,7 +77,7 @@ export default function Home() {
             <a href="/blog">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-lg font-medium">Blog</CardTitle>
-                <BookOpen className="h-5 w-5 text-neutral-500" />
+                <BookOpen className="h-5 w-5 text-neutral-500 group-hover:text-primary transition-colors" />
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-neutral-500">Blog your stuff </p>
