@@ -68,7 +68,7 @@ function QueryTestContent() {
             type="text"
             value={name || ""}
             onChange={(e) => setName(e.target.value)}
-            className="border rounded p-2 w-full"
+            className="border rounded-sm p-2 w-full"
           />
         </div>
 
@@ -92,7 +92,7 @@ function QueryTestContent() {
             step="0.01"
             value={price}
             onChange={(e) => setPrice(e.target.valueAsNumber)}
-            className="border rounded p-2"
+            className="border rounded-sm p-2"
           />
         </div>
 
@@ -118,7 +118,7 @@ function QueryTestContent() {
             onChange={(e) =>
               setSortOrder(e.target.value as (typeof sortOptions)[number])
             }
-            className="border rounded p-2"
+            className="border rounded-sm p-2"
           >
             {sortOptions.map((option) => (
               <option key={option} value={option}>
@@ -139,7 +139,7 @@ function QueryTestContent() {
               value={coords.lat}
               onChange={(e) => setCoords({ lat: e.target.valueAsNumber })}
               placeholder="Latitude"
-              className="border rounded p-2"
+              className="border rounded-sm p-2"
             />
             <input
               type="number"
@@ -147,7 +147,7 @@ function QueryTestContent() {
               value={coords.lng}
               onChange={(e) => setCoords({ lng: e.target.valueAsNumber })}
               placeholder="Longitude"
-              className="border rounded p-2"
+              className="border rounded-sm p-2"
             />
           </div>
         </div>
@@ -173,7 +173,7 @@ function QueryTestContent() {
           >
             Clear Filters
           </Button>
-          <pre className="mt-2 p-2 bg-gray-100 rounded">
+          <pre className="mt-2 p-2 bg-gray-100 rounded-sm">
             {JSON.stringify(filters, null, 2)}
           </pre>
         </div>
