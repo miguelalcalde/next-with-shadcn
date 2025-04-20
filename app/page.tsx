@@ -27,7 +27,7 @@ export default function Home() {
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
               Jump-start your project with three production-ready templates
-              powered by Next.js 15 and Tailwind CSS.
+              powered by Next.js 15 and Tailwind CSS v4.
             </p>
             <div className="space-x-4">
               <Button size="lg">
@@ -101,12 +101,12 @@ export default function Home() {
                 icon: <Layers className="h-4 w-4 mr-1" />,
               },
               {
-                name: "React 18",
+                name: "React 19",
                 url: "https://react.dev",
                 icon: <Atom className="h-4 w-4 mr-1" />,
               },
               {
-                name: "Tailwind CSS",
+                name: "Tailwind CSS v4",
                 url: "https://tailwindcss.com/docs",
                 icon: <Paintbrush className="h-4 w-4 mr-1" />,
               },
