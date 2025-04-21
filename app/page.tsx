@@ -23,7 +23,7 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-center">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
               Next.js Template Collection
-              <span className="text-primary"> for Modern Web Apps</span>
+              <span className="text-black-500"> for Modern Web Apps</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
               Jump-start your project with three production-ready templates
