@@ -1,20 +1,20 @@
+import { fontVariables } from "@/lib/fonts";
 import type { Metadata, Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import {
-  Sidebar,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+// import {
+//   Sidebar,
+//   SidebarProvider,
+//   SidebarTrigger,
+// } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteNavbar } from "@/components/site-navbar";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { ThemeProvider } from "@/components/theme-provider";
+import { ActiveThemeProvider } from "@/components/theme-active";
+import { cookies } from "next/headers";
+import { Toaster } from "@/components/ui/toaster";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -78,21 +78,34 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const activeThemeValue = cookieStore.get("active_theme")?.value;
+  const isScaled = activeThemeValue?.endsWith("-scaled");
   return (
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          "bg-background overscroll-none font-sans antialiased",
+          activeThemeValue ? `theme-${activeThemeValue}` : "",
+          isScaled ? "theme-scaled" : "",
+          fontVariables
         )}
       >
-        <NuqsAdapter>
-          {/* 
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          enableColorScheme
+        >
+          <ActiveThemeProvider initialTheme={activeThemeValue}>
+            <NuqsAdapter>
+              {/* 
             NAVIGATION OPTIONS:
             
             1. Navbar (Default): A simple top navigation using shadcn/ui's navigation-menu component
@@ -110,11 +123,11 @@ export default function RootLayout({
             - For Sidebar: Comment out the Navbar section and uncomment the Sidebar section
           */}
 
-          {/* Navbar Implementation (Default) */}
-          <SiteNavbar />
-          <main className="w-full min-h-screen pt-14">{children}</main>
+              {/* Navbar Implementation (Default) */}
+              <SiteNavbar />
+              <main className="w-full min-h-screen pt-14">{children}</main>
 
-          {/* Sidebar Implementation (Commented out)
+              {/* Sidebar Implementation (Commented out)
           <SidebarProvider>
             <AppSidebar />
             <main className="w-full min-h-screen">
@@ -123,7 +136,10 @@ export default function RootLayout({
             </main>
           </SidebarProvider>
           */}
-        </NuqsAdapter>
+            </NuqsAdapter>
+            <Toaster />
+          </ActiveThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

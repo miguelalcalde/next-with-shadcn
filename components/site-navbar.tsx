@@ -18,6 +18,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ThemeSelector } from "./theme-selector";
+import { ModeToggle } from "./mode-toggle";
 
 // Menu items - reusing the same items from the sidebar
 const items = [
@@ -56,7 +58,7 @@ const items = [
 export function SiteNavbar() {
   return (
     <div className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="px-10 flex h-14 justify-between items-center">
         <NavigationMenu>
           <NavigationMenuList>
             {items.map((item) => (
@@ -73,7 +75,11 @@ export function SiteNavbar() {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
+        <div className="flex items-center gap-2">
+          <ThemeSelector />
+          <ModeToggle />
+        </div>
       </div>
     </div>
   );
-} 
+}
