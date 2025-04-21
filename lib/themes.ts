@@ -27,5 +27,9 @@ export const THEMES = [
     name: "Scaled",
     value: "scaled",
   },
+  {
+    name: "Bold tech",
+    value: "bold-tech",
+  },
 ];
 export type Theme = (typeof THEMES)[number];
