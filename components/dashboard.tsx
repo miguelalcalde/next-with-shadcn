@@ -46,22 +46,22 @@ import { useState } from "react";
 
 // Mock data for sales trend
 const salesData = [
-  { month: "Jan", sales: 42000 },
-  { month: "Feb", sales: 45000 },
-  { month: "Mar", sales: 48000 },
-  { month: "Apr", sales: 43000 },
-  { month: "May", sales: 49000 },
-  { month: "Jun", sales: 52000 },
-  { month: "Jul", sales: 55000 },
+  { month: "Jan", sales: 42000, fill: "var(--chart-3)" },
+  { month: "Feb", sales: 45000, fill: "var(--chart-3)" },
+  { month: "Mar", sales: 48000, fill: "var(--chart-3)" },
+  { month: "Apr", sales: 43000, fill: "var(--chart-3)" },
+  { month: "May", sales: 49000, fill: "var(--chart-3)" },
+  { month: "Jun", sales: 52000, fill: "var(--chart-3)" },
+  { month: "Jul", sales: 55000, fill: "var(--chart-3)" },
 ];
 
 // Mock data for category distribution
 const categoryData = [
-  { name: "Produce", value: 35 },
-  { name: "Dairy", value: 25 },
-  { name: "Meat", value: 20 },
-  { name: "Bakery", value: 15 },
-  { name: "Beverages", value: 5 },
+  { name: "Produce", value: 35, fill: "var(--chart-1)" },
+  { name: "Dairy", value: 25, fill: "var(--chart-2)" },
+  { name: "Meat", value: 20, fill: "var(--chart-3)" },
+  { name: "Bakery", value: 15, fill: "var(--chart-4)" },
+  { name: "Beverages", value: 5, fill: "var(--chart-5)" },
 ];
 
 // Mock data for recent orders
@@ -160,6 +160,9 @@ const salesChartConfig = {
   },
 };
 const categoryChartConfig = {
+  value: {
+    label: "Value",
+  },
   produce: {
     label: "Produce",
     color: "hsl(var(--chart-1))",
@@ -309,7 +312,7 @@ export default function Dashboard() {
                   <Line
                     type="monotone"
                     dataKey="sales"
-                    stroke="var(--color-sales)"
+                    stroke={salesData[0].fill}
                     strokeWidth={2}
                   />
                   <ChartTooltip content={<ChartTooltipContent />} />
@@ -336,12 +339,7 @@ export default function Dashboard() {
                     outerRadius={80}
                     label={({ payload }) => payload.name}
                   >
-                    {categoryData.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={`var(--color-${entry.name.toLowerCase()})`}
-                      />
-                    ))}
+                    {/* No need for explicit Cell components */}
                   </Pie>
                   <ChartTooltip content={<ChartTooltipContent />} />
                 </PieChart>
@@ -380,8 +378,8 @@ export default function Dashboard() {
                       <span
                         className={`inline-flex items-center rounded-full px-2 py-1 text-xs ${
                           order.status === "Completed"
-                            ? "bg-[hsl(var(--chart-1-foreground))]/10 text-[hsl(var(--chart-1))]"
-                            : "bg-[hsl(var(--chart-2-foreground))]/10 text-[hsl(var(--chart-2))]"
+                            ? "bg-[var(--chart-1-foreground)]/10 text-[var(--chart-1)]"
+                            : "bg-[var(--chart-2-foreground)]/10 text-[var(--chart-2)]"
                         }`}
                       >
                         {order.status}

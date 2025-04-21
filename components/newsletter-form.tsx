@@ -27,7 +27,7 @@ export function NewsletterForm() {
         required
         className="sm:min-w-[300px]"
       />
-      <Button type="submit">Notify Me</Button>
+      <Button>Notify Me</Button>
     </form>
   );
 }
