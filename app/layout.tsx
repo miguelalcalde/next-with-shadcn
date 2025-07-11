@@ -3,12 +3,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-// import {
-//   Sidebar,
-//   SidebarProvider,
-//   SidebarTrigger,
-// } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import { SiteNavbar } from "@/components/site-navbar";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -105,37 +99,8 @@ export default async function RootLayout({
         >
           <ActiveThemeProvider initialTheme={activeThemeValue}>
             <NuqsAdapter>
-              {/* 
-            NAVIGATION OPTIONS:
-            
-            1. Navbar (Default): A simple top navigation using shadcn/ui's navigation-menu component
-               - Great for simple applications with few navigation items
-               - Takes up less space on smaller screens
-               - Easier to remove if not needed
-            
-            2. Sidebar: A collapsible sidebar with more advanced features
-               - Better for applications with many navigation items or complex hierarchy
-               - Provides more space for navigation and branding
-               - Can be collapsed to save space
-            
-            To switch between them:
-            - For Navbar: Use the current implementation
-            - For Sidebar: Comment out the Navbar section and uncomment the Sidebar section
-          */}
-
-              {/* Navbar Implementation (Default) */}
               <SiteNavbar />
               <main className="w-full min-h-screen pt-14">{children}</main>
-
-              {/* Sidebar Implementation (Commented out)
-          <SidebarProvider>
-            <AppSidebar />
-            <main className="w-full min-h-screen">
-              <SidebarTrigger />
-              {children}
-            </main>
-          </SidebarProvider>
-          */}
             </NuqsAdapter>
             <Toaster />
           </ActiveThemeProvider>
