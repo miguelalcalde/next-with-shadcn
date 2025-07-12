@@ -81,7 +81,7 @@ export default async function RootLayout({
   const activeThemeValue = cookieStore.get("active_theme")?.value;
   const isScaled = activeThemeValue?.endsWith("-scaled");
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "bg-background overscroll-none font-sans antialiased",
