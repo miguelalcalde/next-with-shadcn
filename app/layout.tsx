@@ -90,14 +90,8 @@ export default async function RootLayout({
           fontVariables
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          enableColorScheme
-        >
-          <ActiveThemeProvider initialTheme={activeThemeValue}>
+        <ThemeProvider>
+          <ActiveThemeProvider>
             <NuqsAdapter>
               <SiteNavbar />
               <main className="w-full min-h-screen pt-14">{children}</main>
