@@ -1,5 +1,4 @@
-import Dashboard from "@/components/dashboard";
-import TabDemo from "@/components/origin-ui/tabs";
+import Dashboard from "@/components/dashboard/dashboard";
 
 export default function Home() {
   return (
