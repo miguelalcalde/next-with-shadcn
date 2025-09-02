@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Table,
   TableBody,
@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table"
 import {
   Bar,
   BarChart,
@@ -21,12 +21,12 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from "recharts";
+} from "recharts"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/ui/chart"
 import {
   ArrowDown,
   ArrowUp,
@@ -34,15 +34,15 @@ import {
   ShoppingCart,
   Target,
   TrendingUp,
-} from "lucide-react";
+} from "lucide-react"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { useState } from "react";
+} from "@/components/ui/select"
+import { useState } from "react"
 
 // Mock data for sales trend
 const salesData = [
@@ -53,7 +53,7 @@ const salesData = [
   { month: "May", sales: 49000, fill: "var(--chart-3)" },
   { month: "Jun", sales: 52000, fill: "var(--chart-3)" },
   { month: "Jul", sales: 55000, fill: "var(--chart-3)" },
-];
+]
 
 // Mock data for category distribution
 const categoryData = [
@@ -62,7 +62,7 @@ const categoryData = [
   { name: "Meat", value: 20, fill: "var(--chart-3)" },
   { name: "Bakery", value: 15, fill: "var(--chart-4)" },
   { name: "Beverages", value: 5, fill: "var(--chart-5)" },
-];
+]
 
 // Mock data for recent orders
 const recentOrders = [
@@ -136,7 +136,7 @@ const recentOrders = [
     total: 89.99,
     status: "Completed",
   },
-];
+]
 
 // Mock data for top items
 const topItems = [
@@ -150,7 +150,7 @@ const topItems = [
   { rank: 8, name: "Product H", sales: 1198, revenue: 2396.0 },
   { rank: 9, name: "Product I", sales: 1156, revenue: 17340.0 },
   { rank: 10, name: "Product J", sales: 1089, revenue: 5445.0 },
-];
+]
 
 // Chart configurations
 const salesChartConfig = {
@@ -158,7 +158,7 @@ const salesChartConfig = {
     label: "Monthly Sales",
     color: "hsl(var(--chart-3))",
   },
-};
+}
 const categoryChartConfig = {
   value: {
     label: "Value",
@@ -183,12 +183,12 @@ const categoryChartConfig = {
     label: "Beverages",
     color: "hsl(var(--chart-5))",
   },
-};
+}
 // Add these new interfaces
 interface TimeFilterData {
-  totalSales: number;
-  avgSales: number;
-  salesGoal: number;
+  totalSales: number
+  avgSales: number
+  salesGoal: number
 }
 
 // Add the time filter data
@@ -213,17 +213,17 @@ const timeFilterData: Record<string, TimeFilterData> = {
     avgSales: 11849,
     salesGoal: 5000000,
   },
-};
+}
 
 export default function Dashboard() {
-  const [timeFilter, setTimeFilter] = useState("30days");
-  const currentData = timeFilterData[timeFilter];
+  const [timeFilter, setTimeFilter] = useState("30days")
+  const currentData = timeFilterData[timeFilter]
 
   // Replace the existing calculations with the filtered data
-  const totalSales = currentData.totalSales;
-  const avgSales = currentData.avgSales;
-  const salesGoal = currentData.salesGoal;
-  const salesGoalProgress = (totalSales / salesGoal) * 100;
+  const totalSales = currentData.totalSales
+  const avgSales = currentData.avgSales
+  const salesGoal = currentData.salesGoal
+  const salesGoalProgress = (totalSales / salesGoal) * 100
 
   return (
     <div className="container mx-auto flex flex-col gap-6 p-4 md:p-8">
@@ -428,5 +428,5 @@ export default function Dashboard() {
         </Card>
       </div>
     </div>
-  );
+  )
 }
