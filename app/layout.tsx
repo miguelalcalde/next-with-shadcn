@@ -1,20 +1,20 @@
-import { fontVariables } from "@/lib/fonts";
-import type { Metadata, Viewport } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import { SiteNavbar } from "@/components/site-navbar";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ActiveThemeProvider } from "@/components/theme-active";
-import { cookies } from "next/headers";
-import { Toaster } from "@/components/ui/toaster";
+import { fontVariables } from "@/lib/fonts"
+import type { Metadata, Viewport } from "next"
+import { Inter as FontSans } from "next/font/google"
+import "./globals.css"
+import { cn } from "@/lib/utils"
+import { SiteNavbar } from "@/components/site-navbar"
+import { NuqsAdapter } from "nuqs/adapters/next/app"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ActiveThemeProvider } from "@/components/theme-active"
+import { cookies } from "next/headers"
+import { Toaster } from "@/components/ui/toaster"
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#000000",
-};
+}
 
 export const metadata: Metadata = {
   title: "Next.js Template Collection",
@@ -70,16 +70,16 @@ export const metadata: Metadata = {
     "Templates",
     "Web Development",
   ],
-};
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  const cookieStore = await cookies();
-  const activeThemeValue = cookieStore.get("active_theme")?.value;
-  const isScaled = activeThemeValue?.endsWith("-scaled");
+  const cookieStore = await cookies()
+  const activeThemeValue = cookieStore.get("active_theme")?.value
+  const isScaled = activeThemeValue?.endsWith("-scaled")
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -101,5 +101,5 @@ export default async function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

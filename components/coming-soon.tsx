@@ -1,15 +1,15 @@
-"use client";
-import { useState, useEffect } from "react";
-import { CountdownTimer } from "./countdown-timer";
-import { NewsletterForm } from "./newsletter-form";
-import { cn } from "@/lib/utils";
+"use client"
+import { useState, useEffect } from "react"
+import { CountdownTimer } from "./countdown-timer"
+import { NewsletterForm } from "./newsletter-form"
+import { cn } from "@/lib/utils"
 
 export default function ComingSoon() {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-secondary/20 flex flex-col items-center justify-center p-4">
@@ -66,5 +66,5 @@ export default function ComingSoon() {
         © {new Date().getFullYear()} Your Blog Name. All rights reserved.
       </div>
     </div>
-  );
+  )
 }

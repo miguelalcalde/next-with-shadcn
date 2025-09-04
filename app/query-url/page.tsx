@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   useQueryState,
@@ -8,43 +8,43 @@ import {
   parseAsBoolean,
   parseAsJson,
   parseAsStringLiteral,
-} from "nuqs";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Suspense } from "react";
+} from "nuqs"
+import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Suspense } from "react"
 
 function QueryTestContent() {
   // Basic string query
-  const [name, setName] = useQueryState("name", { defaultValue: "" });
+  const [name, setName] = useQueryState("name", { defaultValue: "" })
 
   // Number queries
   const [count, setCount] = useQueryState(
     "count",
     parseAsInteger.withDefault(0)
-  );
+  )
   const [price, setPrice] = useQueryState(
     "price",
     parseAsFloat.withDefault(0.0)
-  );
+  )
 
   // Boolean query
   const [isActive, setIsActive] = useQueryState(
     "active",
     parseAsBoolean.withDefault(false)
-  );
+  )
 
   // Select with string literals
-  const sortOptions = ["asc", "desc"] as const;
+  const sortOptions = ["asc", "desc"] as const
   const [sortOrder, setSortOrder] = useQueryState(
     "sort",
     parseAsStringLiteral(sortOptions).withDefault("asc")
-  );
+  )
 
   // Multiple coordinates using useQueryStates
   const [coords, setCoords] = useQueryStates({
     lat: parseAsFloat.withDefault(0),
     lng: parseAsFloat.withDefault(0),
-  });
+  })
 
   // Complex object using JSON
   const [filters, setFilters] = useQueryState(
@@ -53,7 +53,7 @@ function QueryTestContent() {
       (value: unknown) =>
         value as { category?: string; minPrice?: number } | null
     )
-  );
+  )
 
   return (
     <div className="container mx-auto p-8 space-y-6">
@@ -179,7 +179,7 @@ function QueryTestContent() {
         </div>
       </Card>
     </div>
-  );
+  )
 }
 
 export default function QueryTestPage() {
@@ -187,5 +187,5 @@ export default function QueryTestPage() {
     <Suspense>
       <QueryTestContent />
     </Suspense>
-  );
+  )
 }

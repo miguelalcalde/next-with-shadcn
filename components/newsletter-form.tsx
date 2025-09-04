@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 export function NewsletterForm() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     // Handle email subscription here
-    console.log("Subscribed:", email);
-    setEmail("");
-  };
+    console.log("Subscribed:", email)
+    setEmail("")
+  }
 
   return (
     <form
@@ -29,5 +29,5 @@ export function NewsletterForm() {
       />
       <Button>Notify Me</Button>
     </form>
-  );
+  )
 }

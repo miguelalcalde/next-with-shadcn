@@ -1,48 +1,48 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useInterval } from "react-use";
-import { ShoppingBag, Mail, Instagram, Twitter } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { toast } from "@/hooks/use-toast";
-import { ToastAction } from "@/components/ui/toast";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { useInterval } from "react-use"
+import { ShoppingBag, Mail, Instagram, Twitter } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { toast } from "@/hooks/use-toast"
+import { ToastAction } from "@/components/ui/toast"
 
 export default function ComingSoon() {
-  const [email, setEmail] = useState("");
-  const [dots, setDots] = useState("...");
+  const [email, setEmail] = useState("")
+  const [dots, setDots] = useState("...")
   // launch date is 30 days from now always, counting from the beginning of the current day
   const launchDate = new Date(
     new Date().setHours(0, 0, 0, 0) + 30 * 24 * 60 * 60 * 1000
-  );
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  )
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft())
 
   function getTimeLeft() {
-    const now = new Date();
-    const difference = launchDate.getTime() - now.getTime();
+    const now = new Date()
+    const difference = launchDate.getTime() - now.getTime()
 
-    if (difference <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    if (difference <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
 
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((difference / 1000 / 60) % 60),
       seconds: Math.floor((difference / 1000) % 60),
-    };
+    }
   }
 
   useInterval(() => {
-    setTimeLeft(getTimeLeft());
-  }, 1000);
+    setTimeLeft(getTimeLeft())
+  }, 1000)
 
   // useInterval(() => {
   //   setDots((dots) => (dots.length >= 3 ? "." : dots + "."));
   // }, 500);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+    e.preventDefault()
+    if (!email) return
 
     // Simulate API call
     setTimeout(() => {
@@ -50,10 +50,10 @@ export default function ComingSoon() {
         title: "You're on the list!",
         description: "We'll let you know when we launch.",
         action: <ToastAction altText="Close">Close</ToastAction>,
-      });
-      setEmail("");
-    }, 500);
-  };
+      })
+      setEmail("")
+    }, 500)
+  }
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-muted flex flex-col items-center justify-center p-4">
@@ -149,5 +149,5 @@ export default function ComingSoon() {
         </motion.div>
       </motion.div>
     </div>
-  );
+  )
 }

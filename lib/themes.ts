@@ -35,5 +35,5 @@ export const THEMES = [
     name: "Brutalist",
     value: "brutalist",
   },
-];
-export type Theme = (typeof THEMES)[number];
+]
+export type Theme = (typeof THEMES)[number]

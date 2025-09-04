@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { Card } from "@/components/ui/card";
+import { useState, useEffect } from "react"
+import { Card } from "@/components/ui/card"
 
 export function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,29 +9,29 @@ export function CountdownTimer() {
     hours: 0,
     minutes: 0,
     seconds: 0,
-  });
+  })
 
   useEffect(() => {
     const launchDate = new Date(
       new Date().setHours(0, 0, 0, 0) + 30 * 24 * 60 * 60 * 1000
-    );
+    )
 
     const timer = setInterval(() => {
-      const now = new Date();
-      const difference = launchDate.getTime() - now.getTime();
+      const now = new Date()
+      const difference = launchDate.getTime() - now.getTime()
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
       const hours = Math.floor(
         (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      )
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
 
-      setTimeLeft({ days, hours, minutes, seconds });
-    }, 1000);
+      setTimeLeft({ days, hours, minutes, seconds })
+    }, 1000)
 
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <Card className="p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
@@ -60,5 +60,5 @@ export function CountdownTimer() {
         </div>
       </div>
     </Card>
-  );
+  )
 }
