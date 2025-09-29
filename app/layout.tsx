@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
-import { SiteNavbar } from "@/components/site-navbar"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ActiveThemeProvider } from "@/components/theme-active"
@@ -85,16 +84,13 @@ export default async function RootLayout({
       <body
         className={cn(
           "bg-background overscroll-none font-sans antialiased",
-          activeThemeValue ? `theme-${activeThemeValue}` : "",
-          isScaled ? "theme-scaled" : "",
           fontVariables
         )}
       >
         <ThemeProvider>
           <ActiveThemeProvider>
             <NuqsAdapter>
-              <SiteNavbar />
-              <main className="w-full min-h-screen pt-14">{children}</main>
+              <main className="w-full min-h-screen">{children}</main>
             </NuqsAdapter>
             <Toaster />
           </ActiveThemeProvider>
