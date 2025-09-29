@@ -29,29 +29,9 @@ const items = [
     icon: Home,
   },
   {
-    title: "Dashboard",
-    url: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
     title: "Store",
     url: "/store",
     icon: Store,
-  },
-  {
-    title: "Blog",
-    url: "/blog",
-    icon: BookOpen,
-  },
-  {
-    title: "Query url",
-    url: "/query-url",
-    icon: LinkIcon,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
   },
 ]
 
@@ -76,7 +56,7 @@ export function SiteNavbar() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-2">
-          <ThemeSelector />
+          {/* <ThemeSelector /> */}
           <ModeToggle />
         </div>
       </div>
